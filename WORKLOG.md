@@ -1,10 +1,10 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Karen Shekyan
 
-### date x
+### 5/17/23
 
-info
+- Put brainf compiler in place (taken from outside source, credited)
 
 ### date y
 
