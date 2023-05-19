@@ -6,16 +6,18 @@
 
 - Put brainf compiler in place (taken from outside source, credited)
 
-### date y
+### 5/19/23
 
-info
+- Put together first optimization (using the average and a lot of registers)
+- Constructed brainf code snippets to be reused (eg. printing the message)
 
 
-## GROUP MEMBER 2
+Vi Lin
 
-### date x
+### 05/18/2023
 
-info
+- Made minimum viable project for converting ASCII into brainf\*ck code.
+- Worked on document for instructions on an optimization for traversal back to the start of the registers.
 
 ### date y
 
