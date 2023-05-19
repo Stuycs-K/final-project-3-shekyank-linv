@@ -6,9 +6,10 @@
 
 - Put brainf compiler in place (taken from outside source, credited)
 
-### date y
+### 5/19/23
 
-info
+- Put together first optimization (using the average and a lot of registers)
+- Constructed brainf code snippets to be reused (eg. printing the message)
 
 
 ## GROUP MEMBER 2
