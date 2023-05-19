@@ -1,7 +1,6 @@
 import sys
 
-#print(sys.argv[1])
-if(len(sys.argv) < 3):
+if (len(sys.argv) < 3):
 	print("Usage: python3 one-average.py <message> <output_file>")
 else:
 	message = sys.argv[1]
@@ -26,7 +25,15 @@ else:
 
 	#write to file
 	file = open(sys.argv[2], "w")
-	file.write(">" + "+" * len(message))
+	file.write(">" + "+" * len(message)) #setup
 	file.write("[[>]>" + "+" * f2)
-	file.write("[<" + "+" * f1 + ">-]<[<]>-]>")
+	file.write("[<" + "+" * f1 + ">-]<[<]>-]>") #set registers to f1*f2
+	for i in range(len(distances)):
+		if (distances[i] < 0):
+			file.write("-" * abs(distances[i]))
+		else:
+			file.write("+" * distances[i])
+		if (i < len(distances) - 1):
+			file.write(">")
+	file.write("[<]>.[>.]")
 	file.close()
