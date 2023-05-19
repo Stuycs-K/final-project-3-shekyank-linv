@@ -34,22 +34,31 @@ def getMove(n1, n2):
         return (n2-n1) * ">"
 
 registers = [average] # Set starting register
-bestregs = [0] # Set starting registry
+lastreg = 0 # Set starting registry
 instList = [] # Create instruction list
+# I'm so sorry this is horrendous code
 for i in message:
-    bestreg = 0
-    inst = getShift(ord(i), registers[bestreg])
+    bestreg = 0 # Set default register to look at.
+    inst = getShift(ord(i), registers[bestreg]) # Set default instructions.
+    # Look through list of existing registers, finding the best register to go to, and get instructions for going there and getting value.
     for j in range(0, len(registers)):
-        if(abs(ord(i) - registers[j]) < abs(ord(i) - registers[bestreg])):
+        # If the amt of chars needed to change ascii values to desired + amt of chars needed to traverse to register is better, select that registry.
+        if(abs(ord(i) - registers[j] + abs(j - lastreg)) < 
+           abs(ord(i) - registers[bestreg]) + abs(bestreg - lastreg)):
             bestreg = j
-            inst = getShift(ord(i), registers[bestreg])
-    if(abs(ord(i) - average) < abs(ord(i) - registers[bestreg])):
+    # Check if going from a new register is better.
+    # Check if chars to average plus chars to go to a new register is better than existing.
+    if(abs(ord(i) - average) + abs(len(registers) - lastreg) < 
+       abs(ord(i) - registers[bestreg]) + abs(bestreg - lastreg)):
+        # If so, create the new register, and set best register.
         registers.append(average)
         bestreg = len(registers)-1
-        inst = getShift(ord(i), registers[bestreg])
+    # Calculate instruction based on best register.
+    inst = getMove(lastreg, bestreg) + getShift(ord(i), registers[bestreg])
+
+    # Update registers, and best registers in order to calculate the direction we have to move next.
     registers[bestreg] = ord(i)
-    inst = getMove(bestregs[len(bestregs)-1], bestreg) + inst
-    bestregs.append(bestreg)
+    lastreg = bestreg
     instList.append(inst)
 
 instList = '.'.join(instList)+'.'
