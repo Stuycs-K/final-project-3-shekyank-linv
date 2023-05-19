@@ -12,11 +12,12 @@
 - Constructed brainf code snippets to be reused (eg. printing the message)
 
 
-## GROUP MEMBER 2
+Vi Lin
 
-### date x
+### 05/18/2023
 
-info
+- Made minimum viable project for converting ASCII into brainf\*ck code.
+- Worked on document for instructions on an optimization for traversal back to the start of the registers.
 
 ### date y
 
