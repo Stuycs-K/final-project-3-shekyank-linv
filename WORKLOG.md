@@ -11,8 +11,7 @@
 - Put together first optimization (using the average and a lot of registers)
 - Constructed brainf code snippets to be reused (eg. printing the message)
 
-
-Vi Lin
+## Vi Lin
 
 ### 05/18/2023
 
@@ -23,3 +22,7 @@ Vi Lin
 
 - Building off first optimization of average, implement second optimization of re-using registries with an optimal path.
 - Commented code.
+
+### 05/22/2023
+
+- Planned presentation with Karen, and beginning work on writing down the presentation.
