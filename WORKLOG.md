@@ -19,6 +19,7 @@ Vi Lin
 - Made minimum viable project for converting ASCII into brainf\*ck code.
 - Worked on document for instructions on an optimization for traversal back to the start of the registers.
 
-### date y
+### 05/19/2023
 
-info
+- Building off first optimization of average, implement second optimization of re-using registries with an optimal path.
+- Commented code.
