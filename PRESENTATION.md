@@ -69,3 +69,11 @@ Output:
 We know that `!`'s ASCII value is 33, which lines up with our byte at index 0.
 
 We're going to skip over `,`, but it should be known that it simply lets you take in a user input.
+
+|Symbol|Purpose|
+|-|-|
+|>|Shift the data pointer one index to the right. +1|
+|<|Shift the data pointer one index to the left. -1|
+|+|Add one to the byte that the data pointer is pointing at.|
+|-|Subtract one from the byte that the data pointer is pointing at.|
+|.|Print out byte that the data pointer is pointing at.|
