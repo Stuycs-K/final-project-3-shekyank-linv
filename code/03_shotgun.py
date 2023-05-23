@@ -15,7 +15,7 @@ average = round(average)
 
 closeToAvg = [average-2, average-1, average, average+1, average+2]
 minimumSum = float('inf')
-instructionList = []
+minInstructions = ""
 fac1 = 1
 fac2 = average
 
@@ -68,18 +68,18 @@ for number in closeToAvg:
         lastreg = bestreg
         instList.append(inst)
 
-    if (f1 + f2 + len(registers) < minimumSum):
-        minimumSum = f1 + f2 + len(registers)
-        instructionList = instList
+    instList = '.'.join(instList)+'.'
+    if (f1 + f2 + len(instList) < minimumSum):
+        minimumSum = f1 + f2 + len(instList)
+        minInstructions = instList
         fac1 = f1
         fac2 = f2
 
 
-instructionList = '.'.join(instructionList)+'.'
 # write to file
 file = open(sys.argv[2], "w")
 file.write(">" + "+" * len(registers)) #setup, only need as many registers as calculated.
 file.write("[[>]>" + "+" * fac2)
 file.write("[<" + "+" * fac1 + ">-]<[<]>-]>") #set registers to f1*f2
-file.write(instructionList) #write calculated instructions
+file.write(minInstructions) #write calculated instructions
 file.close()
