@@ -16,25 +16,24 @@ The language functions on directly manipulating bytes, with a data pointer and a
 We'll go over the first six symbols first with an example.
 Starting off fresh, this is how any brainf*ck's byte registers will look with no instructions.
 
-
-`v`
-`0`
-`0`
-
-Row one shows the current instructions we have. It is currently empty.
-Row two will show where the data pointer is pointing at.
-Row three shows the value of the byte at that location.
-Row four represents the index of the byte ( for instruction purposes ).
+|Pointer|v|
+|-|-|
+|Value|0|
+|Index|0|
 
 We'll try our first command here.
+
 `>`
-`  v`
-`0 0`
-`0 1`
+|Pointer||v|
+|-|-|-|
+|Value|0|0|
+|Index|0|1|
 
 We move our pointer over to the right by one, creating a new register, set at zero. We can assume that with our next symbol, `<`, it will move... to the left!
 
 `><`
-`v  `
-`0 0`
-`0 1`
+
+|Pointer|v||
+|-|-|-|
+|Value|0|0|
+|Index|0|1|
