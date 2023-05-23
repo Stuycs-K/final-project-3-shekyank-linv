@@ -18,7 +18,7 @@
 
 ### 5/22/23
 
--
+- Made optimization 3 (shotgun)
 
 Vi Lin
 
