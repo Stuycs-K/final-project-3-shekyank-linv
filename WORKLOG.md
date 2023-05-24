@@ -22,7 +22,7 @@
 
 ## 5/23/23
 
-- 
+- Wrote brainf intermediates (multiplication and seeking)
 
 Vi Lin
 
