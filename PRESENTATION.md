@@ -42,12 +42,14 @@ We move our pointer over to the right by one to a new register, set at zero. We 
 `+` and `-` should be fairly intuitive, as we see below.
 
 `+`
+
 |Pointer|v|
 |-|-|
 |Value|1|
 |Index|0|
 
 `+-`
+
 |Pointer|v|
 |-|-|
 |Value|0|
@@ -59,6 +61,7 @@ Our next symbol is `.`, which just prints out the byte we have. It doesn't print
 
 Here's thirty three `+`'s!
 `+++++++++++++++++++++++++++++++++.`
+
 |Pointer|v|
 |-|-|
 |Value|33|
