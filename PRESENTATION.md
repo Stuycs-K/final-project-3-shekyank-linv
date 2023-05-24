@@ -6,7 +6,7 @@ Brainf*ck is an esoteric programming language made in 1993. It's extremely minim
 
 Esoteric programming languages are typically used to test language design, and are typically not intended for actual use.
 
-## Brainf*ck Basics
+## The (Brain)f*cking Basics
 
 Brainf*ck only has eight symbols as mentioned earlier, being:
 `>`, `<`, `+`, `-`, `.`, `,`, `[`, `]`
@@ -117,3 +117,21 @@ When encoding messages we'll also need to efficiently traverse registers, especi
 
 Visualize this: `>+++++[[>]+[<]>-]`
 <!-- >+++++[-[>]+[<]>] is an infinite loop!-->
+
+## Encoding ASCII in Brainf*ck
+We started off with the simplest form of the project, with no loops and just adding to the registers.
+
+Python code below:
+```
+string="Hello!"
+fck=""
+for i in string:
+    fck += ord(i) * '+' + '.' + '>'
+```
+
+Output:
+```
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++.>
+```
+
+This code creates very inoptimal brainf*ck code for printing out our message. Here we aren't attempting to optimize for time, but instead space, as we want to encode our message cleanly.
