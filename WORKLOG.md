@@ -39,3 +39,8 @@ Vi Lin
 ### 05/22/2023
 
 - Planned presentation with Karen, and beginning work on writing down the presentation.
+
+
+### 05/23/2023
+
+- Continue work on presentation, finish beginner basics. Start planning homework.

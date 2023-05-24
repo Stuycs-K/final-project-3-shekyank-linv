@@ -30,7 +30,7 @@ We'll try our first command here.
 |Value|0|0|
 |Index|0|1|
 
-We move our pointer over to the right by one, creating a new register, set at zero. We can assume that with our next symbol, `<`, it will move... to the left!
+We move our pointer over to the right by one to a new register, set at zero. We can assume that with our next symbol, `<`, it will move... to the left!
 
 `><`
 
@@ -39,6 +39,45 @@ We move our pointer over to the right by one, creating a new register, set at ze
 |Value|0|0|
 |Index|0|1|
 
+`+` and `-` should be fairly intuitive, as we see below.
+
+`+`
+|Pointer|v|
+|-|-|
+|Value|1|
+|Index|0|
+
+`+-`
+|Pointer|v|
+|-|-|
+|Value|0|
+|Index|0|
+
+Brainf*ck is unable to handle negative numbers in a consistent fashion, depending on the compiler you may get a byte underflow, or just a segfault. Each byte only goes from 0-255, as negative numbers use an extra bit to identify themselves.
+
+Our next symbol is `.`, which just prints out the byte we have. It doesn't print out the number, but instead the byte itself, which is represented by an ASCII character.
+
+Here's thirty three `+`'s!
+`+++++++++++++++++++++++++++++++++.`
+|Pointer|v|
+|-|-|
+|Value|33|
+|Index|0|
+
+Output:
+`!`
+
+We know that `!`'s ASCII value is 33, which lines up with our byte at index 0.
+
+We're going to skip over `,`, but it should be known that it simply lets you take in a user input.
+
+|Symbol|Purpose|
+|-|-|
+|>|Shift the data pointer one index to the right. +1|
+|<|Shift the data pointer one index to the left. -1|
+|+|Add one to the byte that the data pointer is pointing at.|
+|-|Subtract one from the byte that the data pointer is pointing at.|
+|.|Print out byte that the data pointer is pointing at.|
 
 ## Brainf*ck Intermediates
 
