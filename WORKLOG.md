@@ -51,3 +51,8 @@
 ### 05/24/2023
 
 - Begin work on explanation of our project in the presentation. Finish optimization of averages intro.
+
+### 05/25/2023
+
+- Touch the presentation a little bit.
+- Work on README.
