@@ -44,7 +44,10 @@
 
 - Planned presentation with Karen, and beginning work on writing down the presentation.
 
-
 ### 05/23/2023
 
 - Continue work on presentation, finish beginner basics. Start planning homework.
+
+### 05/24/2023
+
+- Begin work on explanation of our project in the presentation. Finish optimization of averages intro.

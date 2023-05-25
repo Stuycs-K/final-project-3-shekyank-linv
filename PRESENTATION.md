@@ -6,7 +6,7 @@ Brainf*ck is an esoteric programming language made in 1993. It's extremely minim
 
 Esoteric programming languages are typically used to test language design, and are typically not intended for actual use.
 
-## Brainf*ck Basics
+## The (Brain)f*cking Basics
 
 Brainf*ck only has eight symbols as mentioned earlier, being:
 `>`, `<`, `+`, `-`, `.`, `,`, `[`, `]`
@@ -117,3 +117,94 @@ When encoding messages we'll also need to efficiently traverse registers, especi
 
 Visualize this: `>+++++[[>]+[<]>-]`
 <!-- >+++++[-[>]+[<]>] is an infinite loop!-->
+
+## Encoding ASCII in Brainf*ck
+We started off with the simplest form of the project, with no loops and just adding to the registers.
+
+Python code below:
+```
+message="Hello!"
+fck=""
+for i in message:
+    fck += ord(i) * '+' + '.' + '>'
+print(fck);
+```
+
+Output:
+```
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++.>
+```
+
+This code creates very inoptimal brainf*ck code for printing out our message. Here we aren't attempting to optimize for time, but instead space, as we want to encode our message cleanly.
+
+### Looping
+From there, we see thatthere is clearly a lot of room for improvement. A first idea may be to factor the number we need to add, in order to save characters. This idea was quickly ditched, as for longer strings, we see that we need to to loop up to where we want to be for every character.
+
+Our solution was setting many byte registers to a nearby number. We set `n` number of byte registers to the average of all the ASCII values, with n here being the total number of characters we are encoding.
+
+Example for setting 4 registers to 8 * 9
+```
+>++++
+[
+    [>]
+    >++++++++
+    [
+        <+++++++++>-
+    ]
+    <[<]
+    >-
+]
+```
+
+From here, we can use significantly less characters to get those registers to where they should be, which is a large improvement of using 97 `+` symbols just to get to "a".
+
+Python code below:
+```
+message="Hello!"
+fck=""
+average = 0
+for i in message:
+    average += ord(i)
+average /= len(message)
+average = round(average)
+
+# Factor Average
+f1 = 1
+f2 = average
+for i in range(1, int(average ** 0.5) + 1):
+    if (average // i * i == average):
+        f1 = i
+f2 = int(average / f1)
+
+# Find distances from each character to average
+distances = []
+for i in message:
+    distances += [ord(i) - average]
+
+# Set registers to f1*f2, being the factors of the average
+fck += ">" + "+" * len(message)
+fck += "[[>]>" + "+" * f2 + "[<" + "+" * f1 + ">-]<[<]>-]>"
+
+# Adjust each register to be its assigned character
+for i in range(len(distances)):
+    if (distances[i] < 0):
+        fck += "-" * abs(distances[i])
+    else:
+        fck += "+" * distances[i]
+    if (i < len(distances) - 1):
+        fck += ">"
+
+# Print out all the registers
+fck += "[<]>.[>.]"
+
+print(fck)
+```
+
+Output:
+```
+>++++++[[>]>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<+>-]<[<]>-]>----------------->++++++++++++>+++++++++++++++++++>+++++++++++++++++++>++++++++++++++++++++++>--------------------------------------------------------[<]>.[>.]
+```
+
+We can immediately see the optimization here. We do notice however, that if the average is fairly far away, we need to add quite a bit each time, leading to our next optimization.
+
+### Re-using Registers
