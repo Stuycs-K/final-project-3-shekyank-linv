@@ -28,6 +28,11 @@
 
 - Wrote homework problems
 
+## 5/25/23
+
+- Wrote the "Re-using Registers" section of the presentation
+- Fixed minor errors
+
 ## Vi Lin
 
 ### 05/18/2023
