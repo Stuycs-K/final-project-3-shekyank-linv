@@ -123,19 +123,21 @@ We started off with the simplest form of the project, with no loops and just add
 
 Python code below:
 ```
-message="Hello!"
+message="Hello?"
 fck=""
 for i in message:
     fck += ord(i) * '+' + '.' + '>'
-print(fck);
+print(fck)
 ```
 
 Output:
 ```
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++.>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++++++.>
 ```
+`558 characters of garbage!`
 
-This code creates very inoptimal brainf*ck code for printing out our message. Here we aren't attempting to optimize for time, but instead space, as we want to encode our message cleanly.
+
+This code creates very unoptimal brainf*ck code for printing out our message. Here we aren't attempting to optimize for time, but instead space, as we want to encode our message cleanly.
 
 ### Looping
 From there, we see thatthere is clearly a lot of room for improvement. A first idea may be to factor the number we need to add, in order to save characters. This idea was quickly ditched, as for longer strings, we see that we need to to loop up to where we want to be for every character.
@@ -160,7 +162,7 @@ From here, we can use significantly less characters to get those registers to wh
 
 Python code below:
 ```
-message="Hello!"
+message="Hello?"
 fck=""
 average = 0
 for i in message:
@@ -202,8 +204,9 @@ print(fck)
 
 Output:
 ```
->++++++[[>]>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<+>-]<[<]>-]>----------------->++++++++++++>+++++++++++++++++++>+++++++++++++++++++>++++++++++++++++++++++>--------------------------------------------------------[<]>.[>.]
+>++++++[[>]>+++++++++++++[<+++++++>-]<[<]>-]>------------------->++++++++++>+++++++++++++++++>+++++++++++++++++>++++++++++++++++++++>---------------------------------------------[<]>.[>.]
 ```
+`187 characters of clean garbage!`
 
 We can immediately see the optimization here. We do notice however, that if the average is fairly far away, we need to add quite a bit each time, leading to our next optimization.
 
