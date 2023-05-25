@@ -1,4 +1,4 @@
-# THIS DOCUMENT IS A README
+# Nya~ Read me :3 
 ## Project Description
 This project is a demonstration of a brainf*ck encoder for ASCII characters. It contains four versions of the encoder, numbered in order from least optimal to most optimal. (00 - 03)
 
