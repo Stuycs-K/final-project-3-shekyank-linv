@@ -24,7 +24,11 @@
 
 - Wrote brainf intermediates (multiplication and seeking)
 
-Vi Lin
+## 5/24/23
+
+- Wrote homework problems
+
+## Vi Lin
 
 ### 05/18/2023
 
