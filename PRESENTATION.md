@@ -313,3 +313,93 @@ There's still room for improvement. We currently rely on our average being "nice
 ### Takin' It Out Back
 "Good-bye old boy. Take good care of that old yeller dog."
 
+Instead of solving the problem in a more algorithmic way, we decided that since the code ran fairly quickly anyways, we could take a more brutish approach, which we called "shotgunning".
+
+We would take every number within a range of 2 from the average, and run our above algorithm above on it. We would take the one with the least amount of brainf*ck characters, and that would be the best one we selected.
+
+This of course relied on the assumption that the best number would be within 2 of the mean, even though this likely isn't true for every case, it was always going to be as good or better than just selecting the average.
+
+Python code below:
+```
+message = "Hello?"
+
+average = 0
+for i in message:
+    average += ord(i)
+average /= len(message)
+average = round(average)
+
+closeToAvg = [average-2, average-1, average, average+1, average+2]
+minimumSum = float('inf')
+minInstructions = ""
+fac1 = 1
+fac2 = average
+
+for number in closeToAvg:
+    f1 = 1
+    f2 = number
+    for i in range(1, int(number ** 0.5) + 1):
+        if (number // i * i == number):
+            f1 = i
+    f2 = int(number / f1)
+
+    # From p1 to p2
+    def getShift (p1, p2):
+        if(p2 < p1):
+            return (p1-p2) * "+"
+        else:
+            return (p2-p1) * "-"
+
+    def getMove (n1, n2):
+        if (n2 < n1):
+            return (n1-n2) * "<"
+        else:
+            return (n2-n1) * ">"
+
+    registers = [number] # Set starting register
+    lastreg = 0 # Set starting registry
+    instList = [] # Create instruction list
+    # I'm so sorry this is horrendous code
+    for i in message:
+        bestreg = 0 # Set default register to look at.
+        inst = getShift(ord(i), registers[bestreg]) # Set default instructions.
+        # Look through list of existing registers, finding the best register to go to, and get instructions for going there and getting value.
+        for j in range(0, len(registers)):
+            # If the amt of chars needed to change ascii values to desired + amt of chars needed to traverse to register is better, select that registry.
+            if(abs(ord(i) - registers[j] + abs(j - lastreg)) <
+               abs(ord(i) - registers[bestreg]) + abs(bestreg - lastreg)):
+                bestreg = j
+        # Check if going from a new register is better.
+        # Check if chars to average plus chars to go to a new register is better than existing.
+        if(abs(ord(i) - number) + abs(len(registers) - lastreg) <
+           abs(ord(i) - registers[bestreg]) + abs(bestreg - lastreg)):
+            # If so, create the new register, and set best register.
+            registers.append(number)
+            bestreg = len(registers)-1
+        # Calculate instruction based on best register.
+        inst = getMove(lastreg, bestreg) + getShift(ord(i), registers[bestreg])
+
+        # Update registers, and best registers in order to calculate the direction we have to move next.
+        registers[bestreg] = ord(i)
+        lastreg = bestreg
+        instList.append(inst)
+
+    instList = '.'.join(instList)+'.'
+    if (f1 + f2 + len(instList) < minimumSum):
+        minimumSum = f1 + f2 + len(instList)
+        minInstructions = instList
+        fac1 = f1
+        fac2 = f2
+
+fck += ">" + "+" * len(registers) #setup, only need as many registers as calculated.
+fck += "[[>]>" + "+" * fac2
+fck += "[<" + "+" * fac1 + ">-]<[<]>-]>" #set registers to fac1*fac2
+fck += minInstructions
+print(fck)
+```
+Output:
+
+```
+>++[[>]>++++++++++++[<++++++++>-]<[<]>-]>------------------------.>+++++.+++++++..+++.<---------.
+```
+`97 characters of the cleanest garbage around!`
