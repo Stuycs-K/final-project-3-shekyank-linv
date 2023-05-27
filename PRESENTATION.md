@@ -309,3 +309,7 @@ Output:
 `126 characters of cleaner garbage!`
 
 There's still room for improvement. We currently rely on our average being "nice," meaning that it has a pair of factors that are close together. If our average happens to be prime or the product of 2 and a large prime, then our code will still be annoyingly long.
+
+### Takin' It Out Back
+"Good-bye old boy. Take good care of that old yeller dog."
+
