@@ -8,18 +8,18 @@ Esoteric programming languages are typically used to test language design, and a
 
 ## The (Brain)f*cking Basics
 
-Brainf*ck only has eight symbols as mentioned earlier, being:
+Brainf*ck only has eight symbols, as mentioned earlier, which are:
 `>`, `<`, `+`, `-`, `.`, `,`, `[`, `]`
 
-The language functions on directly manipulating bytes, with a data pointer and an instruction pointer.
+The language directly manipulates bytes using a data pointer and an instruction pointer.
 
-We'll go over the first six symbols first with an example.
+We'll go over the first six symbols first with examples.
 Starting off fresh, this is how any brainf*ck's byte registers will look with no instructions.
 
-|Pointer|v|
-|-|-|
-|Value|0|
-|Index|0|
+|Pointer|v||
+|-|-|-|
+|Value|0|0|
+|Index|0|1|
 
 We'll try our first command here.
 
