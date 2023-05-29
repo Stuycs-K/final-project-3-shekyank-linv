@@ -37,6 +37,7 @@
 
 - Minor edits to README
 - Minor fixes to PRESENTATION
+- Added Resources section
 
 ## Vi Lin
 
@@ -66,3 +67,8 @@
 
 - Touch the presentation a little bit.
 - Work on README.
+
+## Resources
+- Brainf*ck compiler from: https://github.com/kgabis/brainfuck-c
+- Basic info from: https://en.wikipedia.org/wiki/Brainfuck
+- Brainf*ck visualier: https://ashupk.github.io/Brainfuck/brainfuck-visualizer-master/index.html
