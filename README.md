@@ -13,9 +13,9 @@ This project is a demonstration of a brainf*ck encoder for ASCII characters. It 
 ## Directions
 All the code in this project is made in python, with no libraries. Coing to the `code/` directory and running the following commands will run parts of the project:
 - `python3 00_minimum.py <MESSAGE> <OUTPUT_FILE>`
-- `python3 01_average.py \<MESSAGE\> \<OUTPUT_FILE\>`
-- `python3 02_distance.py \<MESSAGE\> \<OUTPUT_FILE\>`
-- `python3 03_shotgun.py \<MESSAGE\> \<OUTPUT_FILE\>`
+- `python3 01_average.py <MESSAGE> <OUTPUT_FILE>`
+- `python3 02_distance.py <MESSAGE> <OUTPUT_FILE>`
+- `python3 03_shotgun.py <MESSAGE> <OUTPUT_FILE>`
 
 The `code/` directory also includes a brainf*ck compiler, being `compiler.c`. This can be compiled using `gcc compiler.c`, and then run with `./a.out <FILE>`.
 
