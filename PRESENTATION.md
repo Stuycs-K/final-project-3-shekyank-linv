@@ -55,9 +55,9 @@ We move our pointer over to the right by one to a new register, set at zero. We 
 |Value|0|
 |Index|0|
 
-Brainf*ck is unable to handle negative numbers in a consistent fashion, depending on the compiler you may get a byte underflow, or just a segfault. Each byte only goes from 0-255, as negative numbers use an extra bit to identify themselves.
+Brainf*ck is unable to handle negative numbers in a consistent fashion; depending on the compiler you may get a byte underflow or just a segfault. Each byte only goes from 0-255.
 
-Our next symbol is `.`, which just prints out the byte we have. It doesn't print out the number, but instead the byte itself, which is represented by an ASCII character.
+Our next symbol is `.`, which just prints out the current byte. The byte is rendered as an ASCII character rather than an integer.
 
 Here's thirty three `+`'s!
 `+++++++++++++++++++++++++++++++++.`
