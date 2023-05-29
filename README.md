@@ -1,6 +1,6 @@
 # Nya~ Read me :3 
 ## Project Description
-This project is a demonstration of a brainf*ck encoder for ASCII characters. It contains four versions of the encoder, numbered in order from least optimal to most optimal (in terms of the length of the encoding). (00 - 03)
+This project is a demonstration of a brainf*ck encoder for ASCII characters. It contains four versions of the encoder, numbered (00 - 03) in order from least optimal to most optimal (in terms of the length of the encoding).
 
 00 is the minimum viable encoder, utilizing no brainf*ck loops, and is simply adding to registers and printing them.
 
