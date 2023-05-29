@@ -36,6 +36,7 @@
 ## 5/29/23
 
 - Minor edits to README
+- Minor fixes to PRESENTATION
 
 ## Vi Lin
 
