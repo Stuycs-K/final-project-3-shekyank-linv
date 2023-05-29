@@ -33,6 +33,10 @@
 - Wrote the "Re-using Registers" section of the presentation
 - Fixed minor errors
 
+## 5/29/23
+
+- Minor edits to README
+
 ## Vi Lin
 
 ### 05/18/2023
