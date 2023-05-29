@@ -84,7 +84,7 @@ We're going to skip over `,`, but it should be known that it simply lets you tak
 
 ## Brainf*ck Intermediates
 
-The `[` and `]` symbols designate the start/end of a loop. If the current register is 0 when `[` is encountered, the instruction pointer jumps to the corresponding `]` and the next instruction is read. Similarly, if the current register is 0 when `]` is encountered, the loop ends and the next instruction is read. If the current register is not 0 when `]` is encountered, the instruction pointer jumps back to the corresponding `[`.
+The `[` and `]` symbols designate the start/end of a loop. If the current register is 0 when `[` is encountered, the instruction pointer jumps to the corresponding `]` and the next instruction is read. Conversely, if the current register is not 0 when `]` is encountered, the instruction pointer jumps back to the corresponding `[`.
 
 With the use of loops we can easily construct a piece of brainf*ck code to multiply two numbers:
 
