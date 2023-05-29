@@ -4,7 +4,7 @@
 
 Brainf*ck is an esoteric programming language made in 1993. It's an extremely minimalist, turing complete language using only eight symbols.
 
-Esoteric programming languages are typically used to test language design, and are typically not intended for actual use.
+Esoteric programming languages are typically used to test language design, and are not intended for actual use.
 
 ## The (Brain)f*cking Basics
 
