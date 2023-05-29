@@ -145,10 +145,10 @@ Output:
 `575 characters of garbage!`
 
 
-This code creates very unoptimal brainf*ck code for printing out our message. Here we aren't attempting to optimize for time, but instead space, as we want to encode our message cleanly.
+This code creates very unoptimal brainf*ck code for printing out our message. We want to optimize for length so that we encode our message cleanly.
 
 ### Looping
-From there, we see that there is clearly a lot of room for improvement. A first idea may be to factor the number we need to add, in order to save characters. This idea was quickly ditched, as for longer strings, we see that we need to loop up to where we want to be for every character.
+We see that there is clearly a lot of room for improvement. A first idea may be to factor the number we need to add in order to save characters. This idea was quickly ditched as it would lead to diminishing returns.
 
 Our solution was setting many byte registers to a nearby number. We set `n` byte registers to the average of all the ASCII values, where `n` is the total number of characters we are encoding.
 
@@ -166,7 +166,7 @@ Example for setting 4 registers to 8 * 9
 ]
 ```
 
-From here, we can use significantly fewer characters to get those registers to where they should be, which is a large improvement to using 97 `+` symbols just to get to "a".
+Now, we can use significantly fewer characters to get those registers to where they should be, which is a large improvement to using 97 `+` symbols just to get to "a".
 
 Python code below:
 ```
@@ -313,11 +313,11 @@ There's still room for improvement. We currently rely on our average being "nice
 ### Takin' It Out Back
 "Good-bye old boy. Take good care of that old yeller dog."
 
-Instead of solving the problem in a more algorithmic way, we decided that since the code ran fairly quickly anyways, we could take a more brutish approach, which we called "shotgunning".
+Since we don't really care about the runtime of our Python code, we're free to take a more brutish approach which we call "shotgunning".
 
-We would take every number within a range of 2 from the average, and run our above algorithm above on it. We would take the one with the least amount of brainf*ck characters, and that would be the best one we selected.
+We can take every number within a range of 2 from the average and run our above algorithm above on it. We then take the result with the least amount of brainf*ck characters.
 
-This of course relied on the assumption that the best number would be within 2 of the mean, even though this likely isn't true for every case, it was always going to be as good or better than just selecting the average.
+This of course relies on the assumption that the best number would be within 2 of the mean. Even though this likely isn't true for every case, it's always going to be as good or better than just selecting the average.
 
 Python code below:
 ```
