@@ -1,4 +1,8 @@
 # Nya~ Read me :3 
+
+## Kar-Vi-ng a Path
+**Roster:** Vi Lin, Karen Shekyan
+
 ## Project Description
 This project is a demonstration of a brainf*ck encoder for ASCII characters. It contains four versions of the encoder, numbered (00 - 03) in order from least optimal to most optimal (in terms of the length of the encoding).
 
