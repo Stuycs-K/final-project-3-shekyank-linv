@@ -1,6 +1,6 @@
 # Nya~ Read me :3 
 
-## Kar-Vi-ng a Path
+## Team Name: Kar-Vi-ng a Path
 **Roster:** Vi Lin, Karen Shekyan
 
 ## Project Description
